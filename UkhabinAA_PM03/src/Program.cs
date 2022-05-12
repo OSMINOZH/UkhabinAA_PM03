@@ -96,5 +96,43 @@ public class DeviceShop // Хранение массива, сортировки
     }
 }
 
-
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        try
+        {
+            int cntPhones = 0;
+            Console.WriteLine("Количество устройств:");
+            cntPhones = Convert.ToInt32(Console.ReadLine());
+            if (cntPhones < 1)
+            {
+                Environment.Exit(0);
+            }
+            else
+            {
+                DeviceShop DeviceShop = new DeviceShop(cntPhones);
+                DeviceShop.Fill();
+                DeviceShop.Sort();
+                DeviceShop.PrintToFile();
+            }
+        }
+        catch (Exception ex) // Повторение предыдущего кода
+        {
+            int cntPhones = 0;
+            Console.WriteLine("Количество устройств:");
+            cntPhones = Convert.ToInt32(Console.ReadLine());
+            if (cntPhones < 1)
+            {
+                Environment.Exit(0);
+            }
+            else
+            {
+                DeviceShop DeviceShop = new DeviceShop(cntPhones);
+                DeviceShop.Fill();
+                DeviceShop.Sort();
+                DeviceShop.PrintToFile();
+            }
+        }
+    }
 }
