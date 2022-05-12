@@ -1,0 +1,3 @@
+﻿Марка: testbrand1  Производитель: testmodel1 Цена: 123
+Марка: testbrand2  Производитель: testmodel2 Цена: 123
+Марка: testbrand3  Производитель: testmodel3 Цена: 1234
