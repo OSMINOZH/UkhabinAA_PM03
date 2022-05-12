@@ -40,4 +40,61 @@ public class Smartphone : IComparable
 
 }
 
+public class DeviceShop // Хранение массива, сортировки и вывода в файл. Работает с классом PrintToFile
+{
+    int cntPhones;
+    public Smartphone[] Phones;
+
+    public DeviceShop(int cntPhones)
+    {
+        this.cntPhones = cntPhones;
+        Phones = new Smartphone[cntPhones];
+    }
+
+    public void Fill() // Функция диаологового заполнения
+    {
+        string brand;
+        string model;
+        int price;
+        try
+        {
+            for (int i = 0; i < this.cntPhones; i++)
+            {
+                Console.WriteLine("[Смартфон № " + (i+1) + "]");
+                Console.WriteLine("Введите марку телефона:");
+                brand = Console.ReadLine();
+                Console.WriteLine("Введите модель телефона:");
+                model = Console.ReadLine();
+                Console.WriteLine("Введите стоимость телефона:");
+                price = Convert.ToInt32(Console.ReadLine());
+                this.Phones[i] = new Smartphone(brand, model, price);
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("-----------------------------------");
+            Console.WriteLine("Введенные данные некорректны");
+            Console.WriteLine("Введите данные заново:");
+            Fill();
+        }
+    }
+
+    public void Sort() // Функция сортировки
+    {
+        Array.Sort(this.Phones);
+    }
+
+    public void PrintToFile() // Функция вывода в текстовый файл. Находится в Debug
+    {
+        using (StreamWriter file = new StreamWriter("result.txt", false, Encoding.UTF8))
+        {
+            foreach (Smartphone compared in this.Phones)
+            {
+                file.WriteLine(compared.ToString());
+            }
+        }
+    }
+}
+
+
 }
